@@ -18,8 +18,8 @@ public class AddressService {
 	private ModelMapper modelMapper;
 	
 	public AddressResponse findAddressByEmployeeId(int employeeId){
-		Address address = addressRepo.findAddressByEmployeeId(employeeId);
 		
+		Address address = addressRepo.findById(employeeId).get();
 		AddressResponse addressResponse = modelMapper.map(address, AddressResponse.class);
 		
 		return addressResponse; 
